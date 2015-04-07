@@ -8,14 +8,17 @@ Application was mostly created using TDD approach. For this purpose the Dependec
 The only Network connection failure is handled on the moment of writing. 
 
 Retrofit library is used for network operations. 
+GSON for JSON parsing.
 Nullable jetbrains library to reduce the amount of null checks.
 
 Mockito, JUnit 4 and AssertJ for unit testing purposes.
+
+It is far from being a bulletproof, of course. 
 
 ## Get project
 git clone https://github.com/Yougin/GoEuroTest.git
 
 ## Quick Start
 There are two ways to run the application:
-  1. Use the GoEuroTest.jar executable jar: `java -jar GoEuroTest.jar <city_1> <city_2> <city_3>`
+  1. Use the GoEuroTest.jar executable jar (../out/artifacts/GoEuroTest_jar/): `java -jar GoEuroTest.jar <city_1> <city_2> <city_3>`
   2. Compile the application using `./gradlew distZip` in order to get an archive with all jars and scripts to run.
