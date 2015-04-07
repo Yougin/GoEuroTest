@@ -11,7 +11,8 @@ import java.io.IOException;
 public class ApplicationFactory {
 
   /**
-   * This is why we normally use Dagger :)
+   * This is why we normally use Dagger :) No objects other than FileWriter needs to be recreated,
+   * so to be marked with @Singleton for scoped object graph.
    */
   public static Executable getApplication() {
     DataInteractorImpl interactor = new DataInteractorImpl(WebServiceFactory.getWebService());
