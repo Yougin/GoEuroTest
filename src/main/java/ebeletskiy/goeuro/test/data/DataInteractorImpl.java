@@ -1,11 +1,11 @@
 package ebeletskiy.goeuro.test.data;
 
-import com.sun.istack.internal.NotNull;
 import ebeletskiy.goeuro.test.data.api.WebService;
 import ebeletskiy.goeuro.test.data.api.model.DestinationPoint;
 import ebeletskiy.goeuro.test.utils.Preconditions;
 import java.util.Collections;
 import java.util.List;
+import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 public class DataInteractorImpl implements DataInteractor {
