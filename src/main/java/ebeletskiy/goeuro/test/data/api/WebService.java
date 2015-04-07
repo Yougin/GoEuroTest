@@ -13,6 +13,6 @@ public interface WebService {
    * @param city - you would like to get destination points for (from?)
    * @return If no matches are found an empty JSON array is returned.
    */
-  @GET("/GoEuroAPI/rest/ebeletskiy.goeuro.test.data.api/v2/position/suggest/en/{city}")
+  @GET("/GoEuroAPI/rest/api/v2/position/suggest/en/{city}")
   List<DestinationPoint> getDestinationPoints(@Path("city") String city);
 }
