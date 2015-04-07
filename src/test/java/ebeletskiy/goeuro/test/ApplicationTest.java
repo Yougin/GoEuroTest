@@ -9,7 +9,6 @@ import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 
 import static org.mockito.Matchers.anyListOf;
-import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 
 public class ApplicationTest {
@@ -25,20 +24,14 @@ public class ApplicationTest {
   }
 
   @Test public void should_invoke_method_for_data_fetching_for_data_interactor() throws Exception {
-    String[] args = { "Berlin", "Hanover", "Amsterdam" };
-
-    application.execute(args);
+    application.execute("Berlin");
 
     verify(dataInteractor).getDestinationPoints("Berlin");
-    verify(dataInteractor).getDestinationPoints("Hanover");
-    verify(dataInteractor).getDestinationPoints("Amsterdam");
   }
 
   @Test public void should_invoke_persist_for_data_saver() throws Exception {
-    String[] args = { "Berlin", "Hanover", "Amsterdam" };
+    application.execute("Berlin");
 
-    application.execute(args);
-
-    verify(dataSaver, times(3)).persist(anyListOf((DestinationPoint.class)));
+    verify(dataSaver).persist(anyListOf((DestinationPoint.class)));
   }
 }

@@ -20,13 +20,11 @@ public class Application {
         Preconditions.checkNotNull(dataSaver, "dataSaver must be initialized");
   }
 
-  public void execute(String... cities) {
-    for (String city : cities) {
-      System.out.println("About to process the " + city + " city");
+  public void execute(String city) {
+    System.out.println("About to process " + city + " city");
 
-      List<DestinationPoint> points = dataInteractorImpl.getDestinationPoints(city);
-      persistData(points);
-    }
+    List<DestinationPoint> points = dataInteractorImpl.getDestinationPoints(city);
+    persistData(points);
   }
 
   private void persistData(List<DestinationPoint> destinationPoints) {
