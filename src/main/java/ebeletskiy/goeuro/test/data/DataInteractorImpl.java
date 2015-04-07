@@ -9,7 +9,6 @@ import java.util.List;
 import org.jetbrains.annotations.Nullable;
 
 public class DataInteractorImpl implements DataInteractor {
-  private static final String TAG = DataInteractorImpl.class.getSimpleName();
 
   private final WebService webService;
 

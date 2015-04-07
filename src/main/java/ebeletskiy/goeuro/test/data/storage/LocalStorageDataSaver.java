@@ -8,7 +8,6 @@ import java.util.List;
 import org.jetbrains.annotations.NotNull;
 
 public class LocalStorageDataSaver implements DataSaver {
-  private static final String TAG = LocalStorageDataSaver.class.getSimpleName();
 
   private final FileWriter fileWriter;
   private final DestinationPointHeadersExtractor extractor;

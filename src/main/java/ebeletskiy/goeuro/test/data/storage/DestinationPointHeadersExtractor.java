@@ -5,7 +5,6 @@ import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 public class DestinationPointHeadersExtractor {
-  private static final String TAG = DestinationPointHeadersExtractor.class.getSimpleName();
 
   public static final String EMPTY_STRING = "";
   public static final String SEPARATOR = ", ";
