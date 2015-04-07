@@ -7,7 +7,7 @@ import ebeletskiy.goeuro.test.utils.Preconditions;
 import java.io.IOException;
 import java.util.List;
 
-public class Application {
+public class Application implements Executable {
 
   private final DataInteractor dataInteractorImpl;
   private final DataSaver localStorageDataSaver;
@@ -21,8 +21,6 @@ public class Application {
   }
 
   public void execute(String city) {
-    System.out.println("About to process " + city + " city");
-
     List<DestinationPoint> points = dataInteractorImpl.getDestinationPoints(city);
     persistData(points);
   }
