@@ -29,7 +29,7 @@ public class DataInteractorImpl implements DataInteractor {
       return Collections.EMPTY_LIST;
     }
 
-    List<DestinationPoint> destinationPoints = webService.getPointsOfInterest(city);
+    List<DestinationPoint> destinationPoints = webService.getDestinationPoints(city);
 
     if (destinationPoints == null || destinationPoints.isEmpty()) {
       return Collections.EMPTY_LIST;

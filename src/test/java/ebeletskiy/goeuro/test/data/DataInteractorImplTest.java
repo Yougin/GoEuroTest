@@ -48,7 +48,7 @@ public class DataInteractorImplTest {
 
   @Test public void should_return_proper_amount_of_points_on_positive_web_response()
       throws Exception {
-    when(webService.getPointsOfInterest(BERLIN_ARGUMENT)).thenReturn(getListOfFakePoints());
+    when(webService.getDestinationPoints(BERLIN_ARGUMENT)).thenReturn(getListOfFakePoints());
 
     List<DestinationPoint> points = interactor.getDestinationPoints(BERLIN_ARGUMENT);
 
@@ -56,7 +56,7 @@ public class DataInteractorImplTest {
   }
 
   @Test public void should_return_empty_collection_on_negative_web_response() throws Exception {
-    when(webService.getPointsOfInterest(BERLIN_ARGUMENT)).thenReturn(null);
+    when(webService.getDestinationPoints(BERLIN_ARGUMENT)).thenReturn(null);
 
     List<DestinationPoint> points = interactor.getDestinationPoints(BERLIN_ARGUMENT);
 

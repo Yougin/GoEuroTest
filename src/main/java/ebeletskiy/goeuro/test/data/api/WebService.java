@@ -8,5 +8,5 @@ import retrofit.http.Path;
 public interface WebService {
 
   @GET("/GoEuroAPI/rest/ebeletskiy.goeuro.test.data.api/v2/position/suggest/en/{city}")
-  List<DestinationPoint> getPointsOfInterest(@Path("city") String city);
+  List<DestinationPoint> getDestinationPoints(@Path("city") String city);
 }
