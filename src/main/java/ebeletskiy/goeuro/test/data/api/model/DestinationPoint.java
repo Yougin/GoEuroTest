@@ -4,6 +4,7 @@ import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
 public class DestinationPoint {
+  @SerializedName("_type") @Expose private String mType;
   @SerializedName("_id") @Expose private long id;
   @Expose private Object key;
   @Expose private String name;
@@ -17,6 +18,14 @@ public class DestinationPoint {
   @Expose private String countryCode;
   @Expose private boolean coreCountry;
   @Expose private Object distance;
+
+  public String getmType() {
+    return mType;
+  }
+
+  public void setmType(String mType) {
+    this.mType = mType;
+  }
 
   public long getId() {
     return id;
@@ -122,7 +131,7 @@ public class DestinationPoint {
     this.distance = distance;
   }
 
-  public class GeoPosition {
+  public static class GeoPosition {
     @Expose private double latitude;
     @Expose private double longitude;
 
