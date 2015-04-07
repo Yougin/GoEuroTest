@@ -10,8 +10,8 @@ import org.jetbrains.annotations.NotNull;
 public class LocalStorageDataSaver implements DataSaver {
   private static final String TAG = LocalStorageDataSaver.class.getSimpleName();
 
-  public FileWriter fileWriter;
-  public DestinationPointHeadersExtractor extractor;
+  private final FileWriter fileWriter;
+  private final DestinationPointHeadersExtractor extractor;
 
   public LocalStorageDataSaver(@NotNull FileWriter fileWriter,
       @NotNull DestinationPointHeadersExtractor extractor) {

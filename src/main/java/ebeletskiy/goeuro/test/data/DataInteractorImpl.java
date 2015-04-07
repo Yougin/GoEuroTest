@@ -11,7 +11,7 @@ import org.jetbrains.annotations.Nullable;
 public class DataInteractorImpl implements DataInteractor {
   private static final String TAG = DataInteractorImpl.class.getSimpleName();
 
-  private WebService webService;
+  private final WebService webService;
 
   public DataInteractorImpl(WebService webService) {
     this.webService = Preconditions.checkNotNull(webService, "webService must be initialized");
