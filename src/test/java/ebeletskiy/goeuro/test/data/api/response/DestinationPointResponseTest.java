@@ -1,6 +1,6 @@
-package api.response;
+package ebeletskiy.goeuro.test.data.api.response;
 
-import api.model.DestinationPoint;
+import ebeletskiy.goeuro.test.data.api.model.DestinationPoint;
 import com.google.gson.Gson;
 import com.google.gson.JsonSyntaxException;
 import com.google.gson.reflect.TypeToken;
