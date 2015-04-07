@@ -12,8 +12,14 @@ public class MainTest {
     main = new Main();
   }
 
-  @Test public void testName() throws Exception {
+  @Test public void test_success_flow() throws Exception {
     String[] args = { "BERLIN", "AMSTERDAM" };
+
+    main.main(args);
+  }
+
+  @Test public void test_no_args_flow() throws Exception {
+    String[] args = { };
 
     main.main(args);
   }
