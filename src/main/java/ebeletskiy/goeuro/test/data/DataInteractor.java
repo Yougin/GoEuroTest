@@ -6,6 +6,6 @@ import java.util.List;
 
 public interface DataInteractor {
 
-  List<DestinationPoint> getDestinationPoints(@NotNull String city);
+  @NotNull List<DestinationPoint> getDestinationPoints(@NotNull String city);
 
 }
