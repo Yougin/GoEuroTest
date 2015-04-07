@@ -1,5 +1,6 @@
 package ebeletskiy.goeuro.test.data.api;
 
+import ebeletskiy.goeuro.test.data.api.error.NetworkConnectionException;
 import ebeletskiy.goeuro.test.data.api.model.DestinationPoint;
 import java.util.List;
 import retrofit.http.GET;
@@ -14,5 +15,6 @@ public interface WebService {
    * @return If no matches are found an empty JSON array is returned.
    */
   @GET("/GoEuroAPI/rest/api/v2/position/suggest/en/{city}")
-  List<DestinationPoint> getDestinationPoints(@Path("city") String city);
+  List<DestinationPoint> getDestinationPoints(@Path("city") String city) throws
+      NetworkConnectionException;
 }

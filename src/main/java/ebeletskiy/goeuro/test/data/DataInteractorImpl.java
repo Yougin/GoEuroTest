@@ -1,6 +1,7 @@
 package ebeletskiy.goeuro.test.data;
 
 import ebeletskiy.goeuro.test.data.api.WebService;
+import ebeletskiy.goeuro.test.data.api.error.NetworkConnectionException;
 import ebeletskiy.goeuro.test.data.api.model.DestinationPoint;
 import ebeletskiy.goeuro.test.utils.Preconditions;
 import java.util.Collections;
@@ -28,12 +29,22 @@ public class DataInteractorImpl implements DataInteractor {
       return Collections.EMPTY_LIST;
     }
 
-    List<DestinationPoint> destinationPoints = webService.getDestinationPoints(city);
+    List<DestinationPoint> destinationPoints = executeNetworkRequest(city);
 
     if (destinationPoints == null || destinationPoints.isEmpty()) {
       return Collections.EMPTY_LIST;
     }
 
     return destinationPoints;
+  }
+
+  @Nullable private List<DestinationPoint> executeNetworkRequest(String city) {
+    try {
+      return webService.getDestinationPoints(city);
+    } catch (NetworkConnectionException e) {
+      System.out.println("Oh! Looks like you don't have internet connection, try again later");
+    }
+
+    return null;
   }
 }

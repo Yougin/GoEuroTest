@@ -28,7 +28,7 @@ public class Application implements Executable {
     System.out.println("The amount of fetched points is " + points.size());
 
     if (points.isEmpty()) {
-      System.out.println("So there is nothing to save, exiting");
+      System.out.println("So there is nothing to save, exiting\n");
     } else {
       persistData(points);
     }

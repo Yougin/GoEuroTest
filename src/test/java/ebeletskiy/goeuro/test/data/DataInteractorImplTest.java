@@ -1,6 +1,7 @@
 package ebeletskiy.goeuro.test.data;
 
 import ebeletskiy.goeuro.test.data.api.WebService;
+import ebeletskiy.goeuro.test.data.api.error.NetworkConnectionException;
 import ebeletskiy.goeuro.test.data.api.model.DestinationPoint;
 import java.util.List;
 import org.junit.Before;
@@ -47,7 +48,7 @@ public class DataInteractorImplTest {
   }
 
   @Test public void should_return_proper_amount_of_points_on_positive_web_response()
-      throws Exception {
+      throws Exception, NetworkConnectionException {
     when(webService.getDestinationPoints(BERLIN_ARGUMENT)).thenReturn(
         createListOfDestinationPoints());
 
@@ -56,8 +57,18 @@ public class DataInteractorImplTest {
     assertThat(points).hasSize(AMOUNT_OF_FAKE_POINTS);
   }
 
-  @Test public void should_return_empty_collection_on_negative_web_response() throws Exception {
+  @Test public void should_return_empty_collection_on_negative_web_response()
+      throws Exception, NetworkConnectionException {
     when(webService.getDestinationPoints(BERLIN_ARGUMENT)).thenReturn(null);
+
+    List<DestinationPoint> points = interactor.getDestinationPoints(BERLIN_ARGUMENT);
+
+    assertThat(points).isEmpty();
+  }
+
+  @Test public void should_return_empty_collection_if_no_network_connection()
+      throws Exception, NetworkConnectionException {
+    when(webService.getDestinationPoints(BERLIN_ARGUMENT)).thenThrow(new NetworkConnectionException());
 
     List<DestinationPoint> points = interactor.getDestinationPoints(BERLIN_ARGUMENT);
 
