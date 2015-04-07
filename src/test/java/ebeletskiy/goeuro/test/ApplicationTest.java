@@ -3,13 +3,17 @@ package ebeletskiy.goeuro.test;
 import ebeletskiy.goeuro.test.data.DataInteractor;
 import ebeletskiy.goeuro.test.data.api.model.DestinationPoint;
 import ebeletskiy.goeuro.test.data.storage.DataSaver;
+import java.util.Collections;
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 
 import static org.mockito.Matchers.anyListOf;
+import static org.mockito.Matchers.anyString;
 import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.verifyZeroInteractions;
+import static org.mockito.Mockito.when;
 
 public class ApplicationTest {
 
@@ -33,5 +37,13 @@ public class ApplicationTest {
     application.execute("Berlin");
 
     verify(dataSaver).persist(anyListOf((DestinationPoint.class)));
+  }
+
+  @Test public void should_be_no_interaction_with_saver_if_zero_points_fetched() throws Exception {
+    when(dataInteractor.getDestinationPoints(anyString())).thenReturn(Collections.EMPTY_LIST);
+
+    application.execute("");
+
+    verifyZeroInteractions(dataSaver);
   }
 }
