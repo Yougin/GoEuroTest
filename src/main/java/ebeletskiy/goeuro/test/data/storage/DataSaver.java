@@ -1,9 +1,10 @@
 package ebeletskiy.goeuro.test.data.storage;
 
-import java.io.Serializable;
+import ebeletskiy.goeuro.test.data.api.model.DestinationPoint;
+import java.io.IOException;
+import java.util.List;
 
 public interface DataSaver {
 
-  void persist(Serializable object);
-
+  void persist(List<DestinationPoint> destinationPoints) throws IOException;
 }

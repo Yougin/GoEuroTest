@@ -2,20 +2,20 @@ package ebeletskiy.goeuro.test.data;
 
 import ebeletskiy.goeuro.test.data.api.WebService;
 import ebeletskiy.goeuro.test.data.api.model.DestinationPoint;
-import java.util.ArrayList;
 import java.util.List;
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 
+import static ebeletskiy.goeuro.test.data.DestinationPointsCreator.AMOUNT_OF_FAKE_POINTS;
+import static ebeletskiy.goeuro.test.data.DestinationPointsCreator.createListOfDestinationPoints;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.Mockito.when;
 
 public class DataInteractorImplTest {
 
   public static final String EMPTY_STRING = "";
-  public static final int AMOUNT_OF_FAKE_POINTS = 3;
   public static final String BERLIN_ARGUMENT = "Berlin";
 
   private DataInteractorImpl interactor;
@@ -48,7 +48,8 @@ public class DataInteractorImplTest {
 
   @Test public void should_return_proper_amount_of_points_on_positive_web_response()
       throws Exception {
-    when(webService.getDestinationPoints(BERLIN_ARGUMENT)).thenReturn(getListOfFakePoints());
+    when(webService.getDestinationPoints(BERLIN_ARGUMENT)).thenReturn(
+        createListOfDestinationPoints());
 
     List<DestinationPoint> points = interactor.getDestinationPoints(BERLIN_ARGUMENT);
 
@@ -61,15 +62,5 @@ public class DataInteractorImplTest {
     List<DestinationPoint> points = interactor.getDestinationPoints(BERLIN_ARGUMENT);
 
     assertThat(points).isEmpty();
-  }
-
-  private List<DestinationPoint> getListOfFakePoints() {
-    List<DestinationPoint> points = new ArrayList<DestinationPoint>();
-
-    for (int i = 0; i < AMOUNT_OF_FAKE_POINTS; i++) {
-      points.add(new DestinationPoint());
-    }
-
-    return points;
   }
 }

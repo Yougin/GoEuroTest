@@ -4,8 +4,8 @@ import ebeletskiy.goeuro.test.data.api.model.DestinationPoint;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
-public class DestinationPointsHeaderExtractor {
-  private static final String TAG = DestinationPointsHeaderExtractor.class.getSimpleName();
+public class DestinationPointHeadersExtractor {
+  private static final String TAG = DestinationPointHeadersExtractor.class.getSimpleName();
 
   public static final String EMPTY_STRING = "";
   public static final String SEPARATOR = ", ";
